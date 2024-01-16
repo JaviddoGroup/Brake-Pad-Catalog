@@ -294,8 +294,8 @@ td {
     }
 
     .left_nav_bar {
-        width: 18px;
-        height: 18px;
+        width: 25px;
+        height: 25px;
         background-color: #ffffff;
         margin: 9px;
         align-items: center;
@@ -305,12 +305,12 @@ td {
     }
 
     .left_nav_bar img {
-        height: 10px;
+        height: 15px;
     }
 
     .right_nav_bar {
         width: 35px;
-        height: 17px;
+        height: 25px;
         background-color: #ffffff;
         margin: 10px;
         align-items: center;
@@ -320,6 +320,6 @@ td {
     }
 
     .right_nav_bar img {
-        height: 10px;
+        height: 15px;
     }
 }
