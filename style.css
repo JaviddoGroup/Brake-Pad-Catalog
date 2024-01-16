@@ -67,6 +67,7 @@ td {
 
 .header_left {
     width: 382px;
+    height: 56px;
 }
 
 .header_right {
@@ -322,4 +323,25 @@ td {
     .right_nav_bar a img {
         height: 15px;
     }
+}
+
+/* Dark Mode and White Mode */
+
+.dark-theme {
+    background-color: black;
+    border: #191f33;
+}
+
+.dark-theme .header {
+    background-color: black;
+    border: #191f33;
+}
+
+.dark-theme #dark-icon {
+    display: none;
+}
+
+/* Скрываем светлые иконки при переключении в темную тему и наоборот */
+:not(.dark-theme) #light-icon {
+    display: none;
 }
