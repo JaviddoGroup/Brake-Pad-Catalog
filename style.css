@@ -134,7 +134,7 @@ td {
 }
 
 .left_nav_bar {
-    width: 25px;
+    width: 50px;
     height: 25px;
     background-color: #ffffff;
     margin: 17.5px;
@@ -144,7 +144,7 @@ td {
     border-radius: 4px;
 }
 
-.left_nav_bar div {
+.left_nav_bar a img {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -294,7 +294,7 @@ td {
     }
 
     .left_nav_bar {
-        width: 25px;
+        width: 35px;
         height: 25px;
         background-color: #ffffff;
         margin: 9px;
