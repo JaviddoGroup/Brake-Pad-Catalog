@@ -304,7 +304,7 @@ td {
         border-radius: 4px;
     }
 
-    .left_nav_bar img {
+    .left_nav_bar a img {
         height: 15px;
     }
 
@@ -319,7 +319,7 @@ td {
         border-radius: 4px;
     }
 
-    .right_nav_bar img {
+    .right_nav_bar a img {
         height: 15px;
     }
 }
