@@ -14,6 +14,10 @@
     <link rel="icon" href="../media/image/FavIcon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../media/image/FavIcon.png" type="image/x-icon">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+
 </head>
 
 <body>
@@ -65,18 +69,70 @@
                 <img src="../media/svg/Phone.svg" alt="Contact Us Javiddo Hellper Spare Part">
             </a>
 
-            <a target="_blank" href="https://drive.google.com/uc?export=download&id=1oBiskLY2v9G_JOdbCYGfAhZ1DV8aRIuM"
-                id="" class="right_nav_bar">
+            <a onclick="convertExcelToPDF()" class="right_nav_bar">
                 <img src="../media/svg/Download.svg" alt="Download Javiddo Hellper Spare Part">
             </a>
         </div>
-        <script>
-            // JavaScript для обработки события нажатия на кнопку
-            document.getElementById('DownloadPDF').addEventListener('click', function () {
-                window.print(); // Запуск операции печати страницы
-            });
-        </script>
     </div>
+
+    <script>
+        function convertExcelToPDF() {
+            var excelFilePath = '../DataBase/TestDataBase.xlsx';
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, { type: 'array' });
+                var firstSheetName = workbook.SheetNames[0];
+                var ws = workbook.Sheets[firstSheetName];
+                var jsonData = XLSX.utils.sheet_to_json(ws, { header: 1 });
+
+                // Обработка данных
+                var cleanedData = removeEmptyCells(jsonData);
+
+                // Генерация PDF
+                var pdfDoc = {
+                    content: [
+                        {
+                            table: {
+                                headerRows: 1,
+                                body: cleanedData
+                            }
+                        }
+                    ]
+                };
+
+                pdfMake.createPdf(pdfDoc).download("converted_data.pdf");
+            };
+
+            fetch(excelFilePath)
+                .then(response => response.arrayBuffer())
+                .then(buffer => {
+                    reader.readAsArrayBuffer(new Blob([buffer]));
+                })
+                .catch(error => console.error('Error fetching the Excel file:', error));
+        }
+
+        function removeEmptyCells(jsonData) {
+            // Удаляем пустые ячейки из каждой строки данных
+            var cleanedData = jsonData.map(row => row.filter(cell => cell !== undefined && cell !== null && cell !== ''));
+
+            // Находим максимальное количество ячеек в строках после удаления пустых
+            var maxCells = Math.max(...cleanedData.map(row => row.length));
+
+            // Добавляем недостающие ячейки в каждую строку после удаления пустых
+            cleanedData = cleanedData.map(row => {
+                var diff = maxCells - row.length;
+                if (diff > 0) {
+                    return row.concat(Array(diff).fill(''));
+                }
+                return row;
+            });
+
+            return cleanedData;
+        }
+    </script>
 </body>
 
 </html>
