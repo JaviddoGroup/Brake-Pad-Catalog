@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+body {
+    font-family: 'San Francisco', sans-serif;
+}
+
+
+
+
+
+
 .room_tour {
     display: flex;
     align-items: center;
@@ -15,6 +30,6 @@
 
     .room_tour iframe {
         width: 100% !important;
-        height: 70vh !important;
+        height: 80vh !important;
     }
 }
