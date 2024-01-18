@@ -119,7 +119,7 @@
         bottom: 0;
         top: 0;
         display: flex;
-        align-items: end;
+        align-items: center;
         justify-content: space-between;
     }
 
@@ -152,4 +152,5 @@
     .right_nav_bar a img {
         height: 15px;
     }
+
 }

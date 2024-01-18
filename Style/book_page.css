@@ -45,7 +45,7 @@
     }
 
     .left_nav_bar img {
-        height: 10px;
+        height: 15px;
     }
 
     .right_nav_bar {
@@ -60,6 +60,19 @@
     }
 
     .right_nav_bar img {
-        height: 10px;
+        height: 15px;
+    }
+
+    .mini_icon {
+        height: 27px !important;
+    }
+
+    .catalog iframe {
+        width: 100% !important;
+    }
+
+    .catalog iframe .book {
+        width: 100% !important;
+        overflow: hidden;
     }
 }

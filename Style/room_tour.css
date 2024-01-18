@@ -4,3 +4,17 @@
     justify-content: center;
     margin-top: 50px;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        position: sticky;
+        bottom: 0;
+    }
+
+    .room_tour iframe {
+        width: 100% !important;
+        height: 70vh !important;
+    }
+}
