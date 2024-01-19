@@ -190,3 +190,7 @@ td {
     justify-content: center;
     align-items: center;
 }
+
+#table-container {
+    margin-top: 15px;
+}
